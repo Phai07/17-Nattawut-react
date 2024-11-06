@@ -1,47 +1,50 @@
-import React, { useState } from 'react'
-import Navbar from '../components/Navbar'
-import Admin from '../components/Admin';
-import Users from '../components/Users';
+import React, { useState } from 'react';
+import Nav from '../component/Nav';
+import TableShowUser from '../component/TableShowUser';
 
-export default function Home() {
-  const [mockEmployees, setMockEmployees] = useState([]);
-  const [selectedSector , setSelectedSector] = useState('')
+const Home = () => {
+    // ตาราง user
+    const [showTable, setShowTable] = useState(false);
+    const toggleTable = () => {
+        setShowTable(table => !table);
+        setAdminShowTable(false);
+    };
 
-const [sector, setSector] = useState("");
-  const showTable =() =>{
-    if(sector === "Users"){
-      return <Users />
-    } 
-    if(sector === "Admin"){
-      return <Admin  />
-  }
-  
-}
+    // ตาราง admin
+    const [adminShowTable, setAdminShowTable] = useState(false);
+    const toggleAdminTable = () => {
+        setAdminShowTable(table => !table);
+        setShowTable(false);
+    };
 
-  return (
-    <>
-    <Navbar />
 
-    <div className='h-[1000px] bg-gray-200 pt-5'>
-      <div className='text-4xl   font-bold '>
-      <h1>Generation Thailand</h1>
-      {/* ฟังก์ชั้นแบบ ternary */}
-        {/* sectorเท่ากับค่าว่างเป็นture เมื่อคลิกก็จะไม่เป็นค่าว่างและประกาศตัวด้านหลัง */}
-      <p>{sector === ""? " React - Assessmet" :  `Home - ${sector} sector`}</p>
-      </div>
+    
 
-      <div className='flex justify-center  items-center mt-10 text-xl'>
-      <div className='w-[600px] flex justify-between font-bold'>
-        <button 
-        className='p-5 bg bg-neutral-100  drop-shadow-2xl rounded-lg  hover:bg-blue-200'
-        onClick={()=>setSector("Users")}>Use Home Sector</button>
-        <button 
-        className='p-5 bg bg-neutral-100  drop-shadow-2xl rounded-lg hover:bg-blue-200'
-        onClick={()=>setSector("Admin")}>Admin Home Sector</button>
-      </div>
-      </div>
-      {showTable()}
-    </div>
+    return (
+  <>
+        <Nav />
+        <div className='flex items-center flex-col bg-slate-200 h-[1000px]'>
+            <div className='w-[550px] text-5xl font-bold flex flex-col justify-center items-center p-5 m-10'>
+                <h1>Generation Thailand</h1>
+                {showTable ? (<p>Home - User sector</p>): adminShowTable ?(<p>Home - Admin Sector</p>):<p>React - Assessment</p>}
+            </div>
+            <div className='w-[500px] flex justify-between font-bold'>
+                <button className='bg-white text-black p-5 text-base drop-shadow-2xl hover:bg-orange-500 hover:text-white rounded-2xl'
+                        onClick={toggleTable}>User Home Sector</button>
+                <button className='bg-white text-black p-5 text-base  drop-shadow-2xl hover:bg-orange-500 hover:text-white rounded-2xl'
+                        onClick={toggleAdminTable}>Admin Home Sector</button>
+            </div>
+
+
+            <TableShowUser 
+                showTable={showTable}
+                adminShowTable = {adminShowTable}/>
+
+
+            
+        </div>
     </>
-  )
+    );
 }
+
+export default Home;

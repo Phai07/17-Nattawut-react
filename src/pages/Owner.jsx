@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Nav from "../component/Nav"
 
 
 export default function Owner() {
   return (
   <>
-  <Navbar />
+  <Nav />
   <div className='text-center text-2xl pt-9 flex flex-col items-center font-bold'>
     <div className='text-center'>
       <h1> Nattawut Phai17 </h1>

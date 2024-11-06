@@ -2,18 +2,18 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 
 
-
-//ลิ้งไปที่หน้า owner เมื่อกดที่หน้าและแสดงข้อความ
 export default function Owner() {
   return (
   <>
   <Navbar />
-  <div>
+  <div className='text-center text-2xl pt-9 flex flex-col items-center font-bold'>
     <div className='text-center'>
       <h1> Nattawut Phai17 </h1>
     </div>
-    <div className='mb-10'>
-      <img src="https://i.pinimg.com/736x/05/3c/77/053c770d7dfe6990002dbf526b86267e.jpg" alt="" />
+    <div>
+      <img src="https://i.pinimg.com/736x/05/3c/77/053c770d7dfe6990002dbf526b86267e.jpg" alt=""  
+      className='h-64 mb-6 mt-6'
+      />
     </div>
     <div>
       <span> Don't give up. </span>

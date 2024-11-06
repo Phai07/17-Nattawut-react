@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar'
 export default function Owner() {
   return (
   <>
-  <navbar />
+  <Navbar />
   <div>
     <div className='text-center'>
       <h1> Nattawut Phai17 </h1>
@@ -17,7 +17,7 @@ export default function Owner() {
     </div>
     <div>
       <span> Don't give up. </span>
-      <p>Worry less, Smile more</p>
+      <p>Worry less, Smile more Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto earum consectetur quos eum dolores, nostrum, molestias maiores, odit modi atque sint! Animi obcaecati accusantium ipsa sequi esse cumque voluptas nulla.</p>
     </div>
 
 
